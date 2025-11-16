@@ -1,106 +1,268 @@
-# Data-Unlocked-Transforming-Retail-Sales-into-Strategic-Advantage
+# 📊 Data-Unlocked-Transforming-Retail-Sales-into-Strategic-Advantage
 Retail Sales Analytics — End-to-End Data Cleaning, SQL Analysis & Insight Generation
-Project Summary
+📘 Project Summary
 
-A compact end-to-end analytics project demonstrating data cleaning (Python), SQL analytics, EDA, and business-oriented insight generation.
-The goal: analyze retail sales data to understand revenue drivers, discount behavior, and seasonal patterns.
+This project delivers an end-to-end retail analytics workflow using Python, SQL, and visualization techniques to uncover key business insights from a messy retail dataset.
 
-This project shows the full workflow:
-raw data → cleaned dataset → SQL aggregations → visual insights → strategic findings.
+The objective is to identify:
 
-Key Skills Demonstrated
+Revenue drivers
 
-Python (Pandas) — cleaning, preprocessing, EDA
+Discount effectiveness
 
-SQL — category-level aggregation, time-series trends, discount analysis
+Seasonal trends
 
-Visualization — scatter plot, histogram, heatmap
+Customer purchasing behaviours
 
-Business Interpretation — translating findings into actionable recommendations
+Opportunities for retail strategy optimisation
 
-Dataset
+The workflow replicates real-world analytics processes:
+raw data → cleaning → validation → SQL modelling → analytics → visualization → actionable insights
 
-Mock retail transaction dataset containing:
+🛠️ Tech & Skills Demonstrated
+Tools
+
+Python (Pandas, NumPy)
+
+SQL (SQLite/PostgreSQL)
+
+Excel (business reporting)
+
+Matplotlib / Seaborn
+
+Jupyter Notebook
+
+Skills
+
+Data cleaning & preprocessing
+
+Data quality assessment
+
+SQL analytical modelling
+
+Exploratory data analysis
+
+Statistical correlation analysis
+
+Business insight generation
+
+Visualization & storytelling
+
+📁 Repository Structure
+.
+├── data/
+│   ├── raw_sales.csv
+│   └── cleaned_sales.csv
+├── scripts/
+│   ├── clean_data.py
+│   └── eda_analysis.ipynb
+├── sql/
+│   ├── exploratory_queries.sql
+│   └── advanced_aggregations.sql
+├── visuals/
+│   ├── revenue_distribution.png
+│   ├── discount_vs_revenue_scatter.png
+│   ├── monthly_category_heatmap.png
+│   └── monthly_sales_trend.png
+└── README.md
+
+📦 Dataset Description
+
+A mock retail transaction dataset containing:
 
 Order_ID
 
 Customer_Name
 
+Email
+
+Phone
+
 Product_Category
 
 Order_Date
 
-Revenue
+Revenue (GBP)
 
 Discount (%)
 
-Workflow Overview
-1. Data Cleaning (Python)
+The dataset includes real-world issues, such as:
 
-Removed duplicate transactions
+Missing emails
 
-Standardized date formats
+Duplicate phone numbers
 
-Filled missing values (email, phone, discount)
+Missing discounts
 
-Validated revenue and discount ranges
+Duplicate transactions (e.g., IDs 101, 103, 104)
 
-Exported cleaned dataset for SQL analysis
+Mixed date formats
 
-2. Exploratory Data Analysis
+Mis-typed numerical fields
 
-Basic distributions
+The objective is to simulate a realistic data-quality environment.
 
-Outlier checks
+🔧 1. Data Cleaning (Python)
 
-Revenue segmentation
+Cleaning performed via scripts/clean_data.py, including:
 
-Initial trend exploration
+Data Quality Fixes
 
-3. SQL Analysis
+Removed duplicate rows for Order IDs 101, 103, 104
 
-Core queries include:
+Standardized all dates → YYYY-MM-DD
 
-Revenue by Product Category
+Missing emails populated as: not_provided@email.com
 
-Monthly Sales Trend
+Missing phone numbers replaced with 0000000000
 
-Average Discount per Category
+Missing discounts set to 0.00%
 
-These queries provide the foundation for identifying category performance and seasonal behavior.
+Duplicate phone numbers flagged for CRM review
 
-4. Visualizations
+Revenue + discount fields cast to numeric formats
 
-(Stored in the /visuals folder)
+Trimmed whitespace, normalized categorical values
 
-Scatter Plot: Relationship between discount rate & revenue
+Output:
 
-Heatmap: Revenue by month and category
+✔ cleaned_sales.csv — fully validated dataset
 
-Histogram: Distribution of transaction values
+📊 2. Exploratory Data Analysis (EDA)
 
-Insights (High-Level)
+EDA performed in Python to examine:
 
-Category Drivers: Furniture & Electronics contribute the majority of revenue.
+Revenue distributions
 
-Discount Behavior: Higher discount rates correlate strongly with increased sales.
+Discount behaviour patterns
 
-Seasonality: Clear sales peaks during winter months; lower performance in early spring.
+Outliers (IQR-based)
 
-How to Run
+Customer segmentation by spend
 
-Install requirements
+Early trend detection
 
-pip install pandas
+Correlation analysis (Revenue vs Discount)
+
+Key Finding:
+Discount percentage shows a strong positive correlation (r ≈ 0.828) with total revenue.
+
+🗄️ 3. SQL Analysis
+
+SQL scripts stored in /sql/.
+
+Core SQL Queries
+
+Total revenue per category
+
+Average discount per category
+
+Monthly sales trends
+
+Advanced SQL Queries
+
+Window functions for revenue ranking
+
+RANK() OVER (ORDER BY SUM(Revenue) DESC)
 
 
-Run the cleaning script
+Rolling 3-month revenue trend
 
+ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+
+
+Category-level seasonality breakdown
+
+Discount elasticity exploration
+
+Customer lifetime revenue segmentation
+
+Outputs exported to Excel for business stakeholders.
+
+📉 4. Visualizations
+
+All visuals stored in /visuals/.
+
+Included Charts
+
+Scatter Plot — Discount % vs Revenue
+
+Heatmap — Monthly revenue by category
+
+Histogram — Distribution of transaction values
+
+Line Chart — Monthly sales trend
+
+These visualizations validate quantitative findings and support stakeholder communication.
+
+💡 5. Key Insights (Quantified & Actionable)
+1. Revenue Concentration
+
+Furniture (£4,300) + Electronics (£4,200) = 83% of total revenue
+
+Overreliance on two categories → high concentration risk
+
+2. Discount Effectiveness
+
+Strong correlation between discount rate and revenue (r ≈ 0.828)
+
+Discounted categories (Furniture, Electronics) show highest uplift
+
+Excessive discounts risk margin erosion
+
+3. Seasonal Demand Patterns
+
+Sales peak in January (£3,000) and October (£1,800)
+
+Low-demand months → March, May, August
+
+Seasonal category behaviour:
+
+Electronics peak in winter
+
+Clothing performs best in warm months
+
+📌 6. Strategic Recommendations
+
+✔ Reduce revenue concentration
+→ Strengthen Clothing category or diversify inventory offerings
+
+✔ Optimize discount strategy
+→ Cap Furniture discounts at <20% to protect margins
+→ Use pricing discipline to avoid over-reliance on promotions
+
+✔ Mitigate seasonal dips
+→ Launch targeted campaigns during historically low months
+→ Introduce cross-category bundles aligned with peak seasons
+
+✔ Forecasting & Inventory Alignment
+→ Use past seasonal behaviour to optimize future stock levels
+
+🚀 7. How to Run the Project
+Install Dependencies
+pip install -r requirements.txt
+
+Run Data Cleaning Script
 python scripts/clean_data.py
 
+Run SQL Queries
+sqlite3 sales.db < sql/exploratory_queries.sql
+sqlite3 sales.db < sql/advanced_aggregations.sql
 
-Load cleaned_sales.csv into your SQL environment.
+View Visualizations
 
-Execute queries from /sql/analysis.sql.
+Go to the /visuals folder.
 
-View visualizations in /visuals.
+🔮 8. Next Steps
+
+Integrate Python + SQL into an automated pipeline
+
+Add an interactive dashboard (Power BI / Tableau / Streamlit)
+
+Add customer segmentation (clustering models)
+
+Introduce profitability analysis (COGS-enabled data)
+
+Implement sales forecasting models
+
+Add Airflow/Prefect scheduling for automated reporting

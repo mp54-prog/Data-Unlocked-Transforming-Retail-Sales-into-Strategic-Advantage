@@ -1,5 +1,5 @@
 # 📊 Data-Unlocked-Transforming-Retail-Sales-into-Strategic-Advantage
-### Retail Sales Analytics — End-to-End Data Cleaning, SQL Analysis & Insight Generation
+### Retail Sales Insight Pipeline: High-Quality Data Processing, SQL Trend Modelling & Revenue Optimization Strategies
 
 ---
 
